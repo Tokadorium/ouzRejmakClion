@@ -25,7 +25,5 @@ int main() {
 
     printf("%d", counter);
 
-    printf("%d", counter*8);
-
     return 0;
 }
