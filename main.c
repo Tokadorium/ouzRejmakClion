@@ -23,7 +23,11 @@ int main() {
         }
     }
 
-    printf("%d", counter);
+    for (int j = 0; j < i; ++j) {
+        printf("%c", a[i]);
+    }
+
+    printf("\n Counter: %d", counter);
 
     return 0;
 }
