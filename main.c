@@ -1,33 +1,85 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+const int rows=4, cols=4;
 
 int main() {
 
-    char a[1000]={0};
-    int i=0, counter=0;
+    int matrixA[rows][cols];
+    int matrixB[rows][cols];
+    int matrixC[rows][cols];
 
-    printf("Podaj tekst...\n");
+//    info
+//    printf("boze\n");
 
-    while (1){
-        scanf("%c", &a[i]);
-        if ((a[i]=='\n')||i>1000){
-            break;
+//    random data
+    srand(NULL);
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            matrixA[i][j]=rand()%100;
+            matrixB[i][j]=rand()%100;
         }
-        i++;
     }
 
-    for (int j = 0; j <= i; ++j) {
-        if ((a[j]>=65 && a[j]<=90) || (a[j]>=97 && a[j]<=122)){
-            if (!((a[j+1]>=65 && a[j+1]<=90) || (a[j+1]>=97 && a[j+1]<=122))){
-                counter++;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            if (i==j){
+                matrixC[i][j]=1;
+            }
+            else{
+                matrixC[i][j]=0;
             }
         }
     }
 
-    for (int j = 0; j < i; ++j) {
-        printf("%c", a[i]);
-    }
+//    user input
+//    for (int i = 0; i < rows; ++i) {
+//        for (int j = 0; j < cols; ++j) {
+//            if(scanf("%d", &matrix[i][j])!=1){
+//                printf("Incorrect input");
+//                return 1;
+//            }
+//        }
+//    }
 
-    printf("\n Counter: %d", counter);
+//    swap diagonal numbers
+//    int temp;
+//    int colIndex=cols-1;
+//    for (int i = 0; i < rows; ++i) {
+//        temp=matrix[i][i];
+//        matrix[i][i]=matrix[i][colIndex];
+//        matrix[i][colIndex]=temp;
+//        colIndex--;
+//    }
+
+//    print matrix
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            printf("%d\t", matrixA[i][j]);
+            if (j!=0 && j%(rows-1)==0){
+                printf("\n");
+            }
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            printf("%d\t", matrixB[i][j]);
+            if (j!=0 && j%(rows-1)==0){
+                printf("\n");
+            }
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            printf("%d\t", matrixC[i][j]);
+            if (j!=0 && j%(rows-1)==0){
+                printf("\n");
+            }
+        }
+    }
 
     return 0;
 }

@@ -9,4 +9,8 @@
 C:/Users/Jakub/Programowanie w C/ouzRejmakClion/main.c
 stdio.h
 -
+time.h
+-
+stdlib.h
+-
 
